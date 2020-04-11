@@ -19,7 +19,6 @@ export default class Main extends React.Component {
         });
         this.state.books.forEach((book) => {
           console.log(book.title);
-          console.log(book.authors);
         });
       })
       .catch((error) => {

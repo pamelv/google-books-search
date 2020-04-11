@@ -8,9 +8,7 @@ router.get("/books", async (req, res) => {
   console.log(search);
   var results;
   await axios
-    .get(
-      `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=5&key=${process.env.API_KEY}`
-    )
+    .get(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=5`)
     .then(function (res) {
       results = res.data.items;
     })
