@@ -1,36 +1,20 @@
 import React from "react";
-import API from "../utils/booksapi";
+import history from "../history";
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [],
+      search: "",
     };
-  }
-
-  searchBooks(data) {
-    console.log(data);
-    API.getBooks(data)
-      .then((res) => {
-        var results = res.data.items;
-        results.forEach((result) => {
-          this.state.books.push(result.volumeInfo);
-        });
-        this.state.books.forEach((book) => {
-          console.log(book.title);
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   handleFormSubmit = (event) => {
     var data = { search: document.getElementById("search").value };
+    this.setState({ search: data.search });
     event.preventDefault();
-    this.searchBooks(data.search);
-    console.log(this.state.books);
+    localStorage.setItem("search", data.search);
+    history.push("/results");
   };
 
   render() {
@@ -43,10 +27,8 @@ export default class Main extends React.Component {
             name="search"
             placeholder="Title or Author"
           />
-          <button onClick={this.handleFormSubmit}> Button </button>
+          <button onClick={this.handleFormSubmit}> Button</button>
         </form>
-
-        <div id="results">{this.state.books}</div>
       </div>
     );
   }
