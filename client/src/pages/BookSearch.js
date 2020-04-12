@@ -1,5 +1,8 @@
 import React from "react";
 import history from "../history";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -19,17 +22,25 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <input
-            type="text"
-            id="search"
+      <Container style={{ padding: "15rem 8rem" }}>
+        <h1>Google Books</h1>
+        <Form.Group style={{ display: "flex" }}>
+          <Form.Control
+            size="lg"
             name="search"
+            type="text"
             placeholder="Title or Author"
+            id="search"
           />
-          <button onClick={this.handleFormSubmit}> Button</button>
-        </form>
-      </div>
+          <Button
+            variant="warning"
+            onClick={this.handleFormSubmit}
+            style={{ marginLeft: "5px" }}
+          >
+            Search
+          </Button>
+        </Form.Group>
+      </Container>
     );
   }
 }

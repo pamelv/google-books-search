@@ -9,8 +9,6 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="App">
-          <h1>Google Book Search</h1>
-
           <Route exact path="/" component={BookSearch} />
           <Route exact path="/results" component={Results} />
         </div>

@@ -1,5 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display&display=swap");
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+#root,
+html {
+  background-color: #333;
+}
+/* .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: -webkit-fill-available;
+} */
+h1 {
+  font-family: Cormorant Garamond;
+  font-size: 7rem !important;
+  color: white;
+  text-align: center;
+}
+h2 {
+  font-family: Cormorant Garamond;
+  font-size: 4rem !important;
+  color: white;
+  text-align: center;
+}
+h3,
+p {
+  color: #333;
+}
+h3 {
+  font-family: Cormorant Garamond;
+}
+p {
+  font-family: Playfair Display;
+  font-size: 1rem;
+}
+img {
+  float: left;
+  margin-right: 10px;
 }

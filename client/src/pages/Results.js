@@ -1,6 +1,8 @@
 import React from "react";
 import API from "../utils/booksapi";
 import ResultsCard from "../components/ResultsCard";
+import Container from "react-bootstrap/Container";
+import Navbar from "../components/Navbar";
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -30,18 +32,23 @@ export default class Results extends React.Component {
   render() {
     return (
       <div>
-        <h1>Results</h1>
-        {this.state.books.map((book) => (
-          <div key={book.publishedDate}>
-            <ResultsCard
-              title={book.title}
-              description={book.description}
-              imageLink={book.imageLinks.thumbnail}
-              link={book.previewLink}
-              authors={book.authors.join(", ")}
-            />
-          </div>
-        ))}
+        <Navbar />
+        <Container style={{ padding: "1rem 6rem" }}>
+          <h2>Results</h2>
+
+          {this.state.books.map((book) => (
+            <div key={book.publishedDate}>
+              <ResultsCard
+                alt={book.title}
+                title={book.title}
+                description={book.description}
+                imageLink={book.imageLinks.thumbnail}
+                link={book.previewLink}
+                authors={book.authors.join(", ")}
+              />
+            </div>
+          ))}
+        </Container>
       </div>
     );
   }
